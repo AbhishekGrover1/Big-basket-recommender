@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BigBasket AI Recommender</title>
+  <meta name="description" content="Content-based product search over the BigBasket catalog." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <div class="page">
+    <header class="site-header">
+      <span class="wordmark">BigBasket AI Recommender</span>
+    </header>
+
+    <main>
+      <form id="search-form" class="search-form" autocomplete="off">
+        <div class="search-field">
+          <label for="product-input" class="visually-hidden">Search products</label>
+          <input
+            type="text"
+            id="product-input"
+            name="product_name"
+            placeholder="Search a product..."
+            required
+          />
+          <ul id="suggestions" class="suggestions" hidden role="listbox"></ul>
+        </div>
+        <button type="submit" id="search-btn">
+          <span class="btn-label">Search</span>
+          <span class="btn-spinner" aria-hidden="true"></span>
+        </button>
+      </form>
+
+      <p id="result-note" class="result-note" hidden></p>
+      <section id="results" class="results" aria-live="polite"></section>
+    </main>
+
+    <footer class="site-footer">
+      <a href="https://abhishekgroverai.netlify.app" target="_blank" rel="noopener">Built by Abhishek Grover</a>
+    </footer>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,315 @@
+/* ==========================================================================
+   Design tokens
+   ========================================================================== */
+:root {
+  --bg: #0a0a0c;
+  --surface: #121214;
+  --surface-hover: #17171a;
+  --border: #232326;
+  --border-strong: #313135;
+  --text: #edeceb;
+  --text-muted: #8c8c90;
+  --text-faint: #5c5c60;
+  --danger: #e5484d;
+
+  --font: "Inter", -apple-system, "Segoe UI", sans-serif;
+  --radius: 8px;
+  --transition: 120ms ease;
+}
+
+/* ==========================================================================
+   Reset & base
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 1.5px solid var(--text-muted);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Layout
+   ========================================================================== */
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.site-header {
+  padding: 1.5rem clamp(1.25rem, 5vw, 3rem) 0.5rem;
+}
+
+.wordmark {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+main {
+  flex: 1;
+  width: 100%;
+  max-width: 880px;
+  margin: 0 auto;
+  padding: clamp(1.5rem, 5vw, 3rem) 1.25rem 3rem;
+}
+
+/* ==========================================================================
+   Search
+   ========================================================================== */
+.search-form {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.search-field {
+  position: relative;
+  flex: 1 1 auto;
+}
+
+#product-input {
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  font-family: var(--font);
+  font-size: 0.95rem;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: border-color var(--transition);
+}
+
+#product-input::placeholder {
+  color: var(--text-faint);
+}
+
+#product-input:focus {
+  outline: none;
+  border-color: var(--border-strong);
+}
+
+.suggestions {
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0.35rem;
+  list-style: none;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.suggestions li {
+  padding: 0.55rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.suggestions li:hover,
+.suggestions li.is-active {
+  background: var(--surface-hover);
+}
+
+#search-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  font-family: var(--font);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #0a0a0c;
+  background: var(--text);
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: opacity var(--transition);
+}
+
+#search-btn:hover {
+  opacity: 0.85;
+}
+
+#search-btn:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+.btn-spinner {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  border: 2px solid rgba(10, 10, 12, 0.35);
+  border-top-color: #0a0a0c;
+  display: none;
+}
+
+#search-btn.is-loading .btn-spinner {
+  display: inline-block;
+  animation: spin 650ms linear infinite;
+}
+
+#search-btn.is-loading .btn-label {
+  display: none;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ==========================================================================
+   Results
+   ========================================================================== */
+.result-note {
+  margin: 1.25rem 0 0;
+  font-size: 0.825rem;
+  color: var(--text-muted);
+}
+
+.results {
+  margin-top: 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.75rem;
+  animation: fade-in 160ms ease;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.result-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding: 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: border-color var(--transition), background var(--transition);
+}
+
+.result-card:hover {
+  background: var(--surface-hover);
+  border-color: var(--border-strong);
+}
+
+.result-category {
+  font-size: 0.7rem;
+  letter-spacing: 0.02em;
+  color: var(--text-muted);
+}
+
+.result-title {
+  font-weight: 600;
+  font-size: 0.925rem;
+  line-height: 1.35;
+  margin: 0;
+  flex: 1;
+}
+
+.result-footer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.result-tag {
+  font-size: 0.7rem;
+  font-weight: 500;
+  padding: 0.2rem 0.55rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  color: var(--text-muted);
+}
+
+.loading-text,
+.state-message {
+  padding: 1rem 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.state-message.is-error {
+  color: var(--danger);
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.site-footer {
+  padding: 1.5rem clamp(1.25rem, 5vw, 3rem) 2rem;
+  text-align: center;
+}
+
+.site-footer a {
+  font-size: 0.8rem;
+  color: var(--text-faint);
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 480px) {
+  .search-form {
+    flex-direction: column;
+  }
+}
+
+/* ==========================================================================
+   Motion preference
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .results {
+    animation: none;
+  }
+
+  .btn-spinner {
+    animation-duration: 0.001ms;
+  }
+}

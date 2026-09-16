@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: bigbasket-ai-recommender
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    # Single worker, a few threads for light concurrency: threads share one
+    # process's memory, workers would each duplicate the loaded model - see
+    # models/README.md for why that budget matters on the free plan's 512 MB.
+    startCommand: gunicorn --workers 1 --threads 4 --timeout 120 api.main:app
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.3

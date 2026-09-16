@@ -1,0 +1,16 @@
+# Pinned deliberately: joblib pickle files are sensitive to the numpy/pandas
+# version that created them (see models/README.md for what happened here).
+# These exact versions were used to build and verify models/df_recommender.pkl
+# and models/tfidf_matrix.pkl - if you retrain and re-export from your own
+# notebook, match these versions there too (or update this file to match
+# whatever your notebook's environment reports).
+Flask==3.1.3
+numpy==2.4.4
+pandas==3.0.2
+scikit-learn==1.8.0
+joblib==1.5.3
+gunicorn==26.2.0
+
+# Query understanding: typo-tolerant matching and lemmatization.
+rapidfuzz==3.14.6
+nltk==3.10.3

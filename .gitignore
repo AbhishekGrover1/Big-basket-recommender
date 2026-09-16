@@ -1,0 +1,24 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*.pyc
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# Environment / secrets
+.env
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Do not accidentally commit a full dense similarity matrix -
+# see models/README.md before ever generating one of these here.
+similarity_matrix.pkl
