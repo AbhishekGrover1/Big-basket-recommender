@@ -6,10 +6,11 @@ TF-IDF + cosine similarity with three fallback tiers underneath it, so a
 search only comes back empty if the catalog itself has nothing left to
 offer.
 
-![Python](https://img.shields.io/badge/python-3.12-2b2b2e?style=flat-square)
-![Flask](https://img.shields.io/badge/flask-3.1-2b2b2e?style=flat-square)
-![scikit--learn](https://img.shields.io/badge/scikit--learn-1.8-2b2b2e?style=flat-square)
-![License](https://img.shields.io/badge/license-MIT-2b2b2e?style=flat-square)
+[![Live App](https://img.shields.io/badge/Live-App-2EA043?style=flat-square)](https://big-basket-recommender.onrender.com)
+![Python](https://img.shields.io/badge/python-3.12-3776AB?style=flat-square)
+![Flask](https://img.shields.io/badge/flask-3.1-E3242B?style=flat-square)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-1.8-F37626?style=flat-square)
+![License](https://img.shields.io/badge/license-MIT-7C3AED?style=flat-square)
 
 ## How search works
 
