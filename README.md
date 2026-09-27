@@ -1,4 +1,4 @@
-# BigBasket AI Recommender
+# *BigBasket AI Recommender*
 
 Content-based product search over the BigBasket catalog (23,449 products),
 served through a Flask API with a minimalist dark frontend. Retrieval is
@@ -12,7 +12,7 @@ offer.
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-1.8-F37626?style=flat-square)
 ![License](https://img.shields.io/badge/license-MIT-7C3AED?style=flat-square)
 
-## How search works
+## *How search works*
 
 ```mermaid
 flowchart TD
@@ -42,7 +42,7 @@ once at startup - including a one-time lemmatizer warmup so the first real
 search doesn't pay for it - and every request after that is a lookup and a
 similarity computation, not a re-fit.
 
-## Project structure
+## *Project structure*
 
 ```
 bigbasket-recommender/
@@ -68,7 +68,7 @@ bigbasket-recommender/
 └── LICENSE
 ```
 
-## Running locally
+## *Running locally*
 
 ```bash
 python -m venv venv
@@ -79,7 +79,7 @@ python -m api.main
 
 Visit `http://127.0.0.1:5000`.
 
-## Deploying to Render
+## *Deploying to Render*
 
 1. Push this repository to GitHub.
 2. In the Render dashboard, choose **New > Blueprint** and point it at the
@@ -93,18 +93,18 @@ Visit `http://127.0.0.1:5000`.
 Render's free instances spin down after periods of inactivity, so the
 first request after a quiet stretch takes a few extra seconds to wake up.
 
-## Tech stack
+## *Tech stack*
 
 Flask · scikit-learn (TF-IDF, cosine similarity) · rapidfuzz · NLTK
 (lemmatization) · pandas · joblib · gunicorn · vanilla HTML/CSS/JS · Render
 
-## Author
+## *Author*
 
 **Abhishek Grover**
 [Portfolio](https://abhishekgroverai.netlify.app) ·
 [GitHub](https://github.com/AbhishekGrover1) ·
 [LinkedIn](https://www.linkedin.com/in/abhishek-grover07)
 
-## License
+## *License*
 
 MIT - see [LICENSE](LICENSE).
