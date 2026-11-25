@@ -93,7 +93,7 @@ Visit `http://127.0.0.1:5000`.
 Render's free instances spin down after periods of inactivity, so the
 first request after a quiet stretch takes a few extra seconds to wake up.
 
-## *Tech stack*
+## *Tech stacks*
 
 Flask · scikit-learn (TF-IDF, cosine similarity) · rapidfuzz · NLTK
 (lemmatization) · pandas · joblib · gunicorn · vanilla HTML/CSS/JS · Render
@@ -101,7 +101,6 @@ Flask · scikit-learn (TF-IDF, cosine similarity) · rapidfuzz · NLTK
 ## *Author*
 
 **Abhishek Grover**
-[Portfolio](https://abhishekgroverai.netlify.app) ·
 [GitHub](https://github.com/AbhishekGrover1) ·
 [LinkedIn](https://www.linkedin.com/in/abhishek-grover07)
 
